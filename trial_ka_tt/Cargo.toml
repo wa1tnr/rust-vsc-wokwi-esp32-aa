@@ -1,0 +1,14 @@
+[package]
+name = "trial_ka_rr"
+description   = "Rust template wokwi vscode extension (esp32)"
+version = "0.1.0"
+license = "MPL-2.0"
+authors = ["wa1tnr <his@email>"]
+edition = "2021"
+keywords = ["wokwi", "vscode", "esp32"]
+categories    = ["beginner", "rust", "vscode", "wokwi"]
+
+[dependencies]
+hal = { package = "esp32-hal", version = "0.16.0" }
+esp-backtrace = { version = "0.8.0", features = [ "esp32", "panic-handler", "exception-handler", "print-uart", ] }
+esp-println = { version = "0.6.0", features = ["esp32"] }
