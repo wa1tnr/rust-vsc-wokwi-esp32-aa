@@ -1,0 +1,63 @@
+anon@host: $  git branch
+fatal: not a git repository (or any of the parent directories): .git
+
+anon@host: $  git init
+Initialized empty Git repository in /home/chris/Git/rust-vsc-wokwi-esp32-aa/.git/
+
+anon@host: $  pwd
+../rust-vsc-wokwi-esp32-aa
+
+anon@host: $  git add README.md 
+
+anon@host: $  git commit 
+[main (root-commit) 5e81026] Initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+anon@host: $  ./makebranch.sh second
+Switched to a new branch 'second'
+[second d9ecf3e] second
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+anon@host: $  ./makebranch.sh third
+Switched to a new branch 'third'
+[third ca6db58] third
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+anon@host: $  ./makebranch.sh fourth
+Switched to a new branch 'fourth'
+[fourth d002ec5] fourth
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+anon@host: $  ./justmake.sh dvlp-aa
+Switched to a new branch 'dvlp-aa'
+
+anon@host: $  git commit 
+[dvlp-aa 9c9322e] First dvlp commit
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+anon@host: $  date; git show | sed 8q
+
+Mon  1 Jan 17:27:39 UTC 2024
+
+commit 9c9322e60ec82af5ef792fcd2c31f18b84a9a182
+Author: wa1tnr <wa1tnr@users.noreply.github.com>
+Date:   Mon Jan 1 17:26:14 2024 +0000
+
+    First dvlp commit
+    
+            modified:   README.md
+    
+anon@host: $  date ; git branch -avv | cat
+
+Mon  1 Jan 17:31:23 UTC 2024
+
+* dvlp-aa 9c9322e First dvlp commit
+  fourth  d002ec5 fourth
+  main    5e81026 Initial commit
+  second  d9ecf3e second
+  third   ca6db58 third
+
+anon@host: $
+
+END.
