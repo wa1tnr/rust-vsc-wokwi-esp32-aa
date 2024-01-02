@@ -1,3 +1,4 @@
+
 {
   "version": 1,
   "author": "wa1tnr",
@@ -194,13 +195,7 @@
       "left": 61.4,
       "attrs": { "color": "limegreen" }
     },
-    {
-      "type": "wokwi-led",
-      "id": "led26",
-      "top": 130.8,
-      "left": 195.8,
-      "attrs": { "color": "blue" }
-    },
+    { "type": "wokwi-led", "id": "led26", "top": 130.8, "left": 195.8, "attrs": { "or": "blue" } },
     {
       "type": "wokwi-led",
       "id": "led27",
@@ -228,8 +223,20 @@
     [ "esp:RX", "$serialMonitor:TX", "", [] ],
     [ "led1:C", "r1:1", "black", [ "v19.2", "h-47.6" ] ],
     [ "esp:GND.3", "r1:2", "black", [ "v-19.2", "h-48" ] ],
-    [ "led1:A", "esp:5", "green", [ "v19.2", "h19.2" ] ]
+    [ "led1:A", "esp:5", "green", [ "v19.2", "h19.2" ] ],
+    [ "led10:C", "led11:C", "green", [ "v19.2", "h38.8" ] ],
+    [ "led11:C", "led12:C", "green", [ "v19.2", "h58" ] ],
+    [ "led12:C", "led13:C", "green", [ "v19.2", "h48.4" ] ],
+    [ "led13:C", "led14:C", "green", [ "v19.2", "h48.4" ] ],
+    [
+      "led2:C",
+      "esp:GND.3",
+      "black",
+      [ "v19.2", "h-76.4", "v163.2", "h-9.6", "v-9.6", "h-19.2", "v9.6", "h-19.2" ]
+    ],
+    [ "led2:A", "esp:4", "red", [ "v19.2", "h-9.6", "v9.6", "h-9.6", "v153.6", "h-38.4" ] ]
   ],
   "serialMonitor": { "display": "terminal" },
   "dependencies": {}
 }
+

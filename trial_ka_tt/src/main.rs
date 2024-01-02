@@ -130,7 +130,7 @@ fn main() -> ! {
 
     // esp_println:: println!("Testing alternate syntax esp-idf suspected in blog post!");
     // periph system clocks io -mut led- then -set low- mut delay println loop
-    println!("ro-kit-CARL rusuf/rust-vsc--/src/main.rs\r");
+    println!("ticonda ro- ga - kit-JORG rusuf/main.rs\r");
 
     // suspect TX and RX inappropriately mangled by the code above.
 
