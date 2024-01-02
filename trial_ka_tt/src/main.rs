@@ -14,36 +14,51 @@ fn main() -> ! {
 
     // 0   2   4   5  12  13  14  16  17  18  19  21 22 23  25   26 
     // let mut led0  = io.pins.gpio0.into_push_pull_output();
-    let mut led1  = io.pins.gpio1.into_push_pull_output();
+    let mut leds = [
+      io.pins.gpio1.into_push_pull_output().degrade(),
+      io.pins.gpio10.into_push_pull_output().degrade(),
+      io.pins.gpio19.into_push_pull_output().degrade(),
+      io.pins.gpio18.into_push_pull_output().degrade(),
+      io.pins.gpio4.into_push_pull_output().degrade(),
+      io.pins.gpio5.into_push_pull_output().degrade(),
+      io.pins.gpio6.into_push_pull_output().degrade(),
+      io.pins.gpio7.into_push_pull_output().degrade(),
+      io.pins.gpio8.into_push_pull_output().degrade(),
+      io.pins.gpio9.into_push_pull_output().degrade(),
+    ];
+
+    // let mut led1  = io.pins.gpio1.into_push_pull_output();
     // let mut led2  = io.pins.gpio2.into_push_pull_output();
-    let mut led3  = io.pins.gpio3.into_push_pull_output();
+    // let mut led3  = io.pins.gpio3.into_push_pull_output();
     // let mut led4  = io.pins.gpio4.into_push_pull_output();
-    let mut led5  = io.pins.gpio5.into_push_pull_output();
-    let mut led6  = io.pins.gpio6.into_push_pull_output();
-    let mut led7  = io.pins.gpio7.into_push_pull_output();
-    let mut led8  = io.pins.gpio8.into_push_pull_output();
-    let mut led9  = io.pins.gpio9.into_push_pull_output();
-    let mut led10  = io.pins.gpio10.into_push_pull_output();
-    let mut led11  = io.pins.gpio11.into_push_pull_output();
+    // let mut led5  = io.pins.gpio5.into_push_pull_output();
+    // let mut led6  = io.pins.gpio6.into_push_pull_output();
+    // let mut led7  = io.pins.gpio7.into_push_pull_output();
+    // let mut led8  = io.pins.gpio8.into_push_pull_output();
+    // let mut led9  = io.pins.gpio9.into_push_pull_output();
+    // let mut led10  = io.pins.gpio10.into_push_pull_output();
+    // let mut led11  = io.pins.gpio11.into_push_pull_output();
     // let mut led12 = io.pins.gpio12.into_push_pull_output();
     // let mut led13 = io.pins.gpio13.into_push_pull_output();
     // let mut led14 = io.pins.gpio14.into_push_pull_output();
-    let mut led15  = io.pins.gpio15.into_push_pull_output();
+    // let mut led15  = io.pins.gpio15.into_push_pull_output();
     // let mut led16 = io.pins.gpio16.into_push_pull_output();
     // let mut led17 = io.pins.gpio17.into_push_pull_output();
 
     // let mut led18 = io.pins.gpio18.into_push_pull_output();
     // let mut led19 = io.pins.gpio19.into_push_pull_output();
-    let mut led20 = io.pins.gpio20.into_push_pull_output();
+    // let mut led20 = io.pins.gpio20.into_push_pull_output();
     // let mut led21 = io.pins.gpio21.into_push_pull_output();
     // let mut led22 = io.pins.gpio22.into_push_pull_output();
     // let mut led23 = io.pins.gpio23.into_push_pull_output();
-    let mut led24 = io.pins.gpio24.into_push_pull_output();
+    // let mut led24 = io.pins.gpio24.into_push_pull_output();
     // let mut led25 = io.pins.gpio25.into_push_pull_output();
     // let mut led26 = io.pins.gpio26.into_push_pull_output();
-    let mut led27 = io.pins.gpio27.into_push_pull_output();
-    let mut led28 = io.pins.gpio28.into_push_pull_output();
-    let mut led29 = io.pins.gpio29.into_push_pull_output();
+    // let mut led27 = io.pins.gpio27.into_push_pull_output();
+    // let mut led28 = io.pins.gpio28.into_push_pull_output();
+    // let mut led29 = io.pins.gpio29.into_push_pull_output();
+
+
 
     // led.set_high().unwrap();
     // led0.set_low().unwrap();
