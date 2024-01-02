@@ -1,9 +1,14 @@
 #![no_std]
 #![no_main]
 
+// Tue  2 Jan 01:43:47 UTC 2024
+// main.rs
+
 use esp_backtrace as _;
 use esp_println::println;
 use hal::{clock::ClockControl, gpio::IO, peripherals::Peripherals, prelude::*, Delay};
+
+// print uart thing missing!
 
 #[entry]
 fn main() -> ! {
@@ -44,8 +49,8 @@ fn main() -> ! {
       io.pins.gpio25.into_push_pull_output().degrade(),
       io.pins.gpio26.into_push_pull_output().degrade(),
       io.pins.gpio27.into_push_pull_output().degrade(),
-      io.pins.gpio28.into_push_pull_output().degrade(),
-      io.pins.gpio29.into_push_pull_output().degrade(),
+      // nope! io.pins.gpio28.into_push_pull_output().degrade(),
+      // nope! io.pins.gpio29.into_push_pull_output().degrade(),
     ];
 
     // let mut led1  = io.pins.gpio1.into_push_pull_output();
@@ -78,58 +83,66 @@ fn main() -> ! {
     // let mut led28 = io.pins.gpio28.into_push_pull_output();
     // let mut led29 = io.pins.gpio29.into_push_pull_output();
 
-
-
     // led.set_high().unwrap();
     // led0.set_low().unwrap();
-    led1.set_low().unwrap();
+    // led1.set_low().unwrap();
     // led2.set_low().unwrap();
-    led3.set_low().unwrap();
+    // led3.set_low().unwrap();
     // led4.set_low().unwrap();
     // led5.set_low().unwrap();
-    led6.set_low().unwrap();
-    led7.set_low().unwrap();
-    led8.set_low().unwrap();
-    led9.set_low().unwrap();
-    led10.set_low().unwrap();
-    led11.set_low().unwrap();
+    // led6.set_low().unwrap();
+    // led7.set_low().unwrap();
+    // led8.set_low().unwrap();
+    // led9.set_low().unwrap();
+    // led10.set_low().unwrap();
+    // led11.set_low().unwrap();
     // led12.set_low().unwrap();
     // led13.set_low().unwrap();
     // led14.set_low().unwrap();
-    led15.set_low().unwrap();
+    // led15.set_low().unwrap();
     // led16.set_low().unwrap();
     // led17.set_low().unwrap();
     // led18.set_low().unwrap();
     // led19.set_low().unwrap();
-    led20.set_low().unwrap();
+    // led20.set_low().unwrap();
     // led21.set_low().unwrap();
     // led22.set_low().unwrap();
     // led23.set_low().unwrap();
-    led24.set_low().unwrap();
+    // led24.set_low().unwrap();
     // led25.set_low().unwrap();
     // led26.set_low().unwrap();
-    led27.set_low().unwrap();
-    led28.set_low().unwrap();
-    led29.set_low().unwrap();
+    // led27.set_low().unwrap();
+    // led28.set_low().unwrap();
+    // led29.set_low().unwrap();
 
     let mut delay = Delay::new(&clocks);
-    println!("CARL rusuf/rust-vsc--/src/main.rs\r");
+
+    println!("kit-CARL rusuf/rust-vsc--/src/main.rs\r");
+
+    for led in &mut leds {
+        led.set_low().unwrap();
+    }
+
     loop {
 
-    // 1 3 6-11 15 20 24 27-29
+        // 1 3 6-11 15 20 24 27-29
+
+        for led in &mut leds {
+            led.toggle().unwrap();
+        }
 
         // led0.toggle().unwrap();
-        led1.toggle().unwrap();
+        // led1.toggle().unwrap();
         // led2.toggle().unwrap();
-        led3.toggle().unwrap();
+        // led3.toggle().unwrap();
         // led4.toggle().unwrap();
         // led5.toggle().unwrap();
-        led6.toggle().unwrap();
-        led7.toggle().unwrap();
-        led8.toggle().unwrap();
-        led9.toggle().unwrap();
-        led10.toggle().unwrap();
-        led11.toggle().unwrap();
+        // led6.toggle().unwrap();
+        // led7.toggle().unwrap();
+        // led8.toggle().unwrap();
+        // led9.toggle().unwrap();
+        // led10.toggle().unwrap();
+        // led11.toggle().unwrap();
         // led12.toggle().unwrap();
         // led13.toggle().unwrap();
         // led14.toggle().unwrap();
@@ -137,9 +150,6 @@ fn main() -> ! {
         // led17.toggle().unwrap();
         // led18.toggle().unwrap();
         // led19.toggle().unwrap();
-
-
-
         // led21.toggle().unwrap();
         // led22.toggle().unwrap();
         // led23.toggle().unwrap();
@@ -148,22 +158,9 @@ fn main() -> ! {
 
         delay.delay_ms(40u32);
 
-        led0.toggle().unwrap();
-        led2.toggle().unwrap();
-        led4.toggle().unwrap();
-        led5.toggle().unwrap();
-        led12.toggle().unwrap();
-        led13.toggle().unwrap();
-        led14.toggle().unwrap();
-        led16.toggle().unwrap();
-        led17.toggle().unwrap();
-        led18.toggle().unwrap();
-        led19.toggle().unwrap();
-        led21.toggle().unwrap();
-        led22.toggle().unwrap();
-        led23.toggle().unwrap();
-        led25.toggle().unwrap();
-        led26.toggle().unwrap();
+        for led in &mut leds {
+            led.toggle().unwrap();
+        }
 
         delay.delay_ms(1400u32);
     }
