@@ -10,6 +10,7 @@ use hal::{clock::ClockControl, gpio::IO, peripherals::Peripherals, prelude::*, D
 
 // print uart thing missing!
 
+
 #[entry]
 fn main() -> ! {
     let peripherals = Peripherals::take();
@@ -17,12 +18,16 @@ fn main() -> ! {
     let clocks = ClockControl::boot_defaults(system.clock_control).freeze();
     let io = IO::new(peripherals.GPIO, peripherals.IO_MUX);
 
+
     // 0   2   4   5  12  13  14  16  17  18  19  21 22 23  25   26 
     // let mut led0  = io.pins.gpio0.into_push_pull_output();
     let mut leds = [
-      io.pins.gpio1.into_push_pull_output().degrade(),
+      // TX do not use // io.pins.gpio1.into_push_pull_output().degrade(),
       io.pins.gpio2.into_push_pull_output().degrade(),
-      io.pins.gpio3.into_push_pull_output().degrade(),
+      // RX do not use // io.pins.gpio3.into_push_pull_output().degrade(),
+
+      //   THAT WAS THE ISSUE do not touch them here.
+ 
       io.pins.gpio4.into_push_pull_output().degrade(),
       io.pins.gpio5.into_push_pull_output().degrade(),
       io.pins.gpio6.into_push_pull_output().degrade(),
@@ -115,13 +120,19 @@ fn main() -> ! {
     // led28.set_low().unwrap();
     // led29.set_low().unwrap();
 
-    let mut delay = Delay::new(&clocks);
-
-    println!("kit-CARL rusuf/rust-vsc--/src/main.rs\r");
-
     for led in &mut leds {
         led.set_low().unwrap();
     }
+
+
+
+    let mut delay = Delay::new(&clocks);
+
+    // esp_println:: println!("Testing alternate syntax esp-idf suspected in blog post!");
+    // periph system clocks io -mut led- then -set low- mut delay println loop
+    println!("ro-kit-CARL rusuf/rust-vsc--/src/main.rs\r");
+
+    // suspect TX and RX inappropriately mangled by the code above.
 
     loop {
 
