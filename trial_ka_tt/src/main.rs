@@ -1,15 +1,12 @@
 #![no_std]
 #![no_main]
 
-// Tue  2 Jan 01:43:47 UTC 2024
-// main.rs
-
 use esp_backtrace as _;
+
 use esp_println::println;
+use esp_println::print; // no newline!
+
 use hal::{clock::ClockControl, gpio::IO, peripherals::Peripherals, prelude::*, Delay};
-
-// print uart thing missing!
-
 
 #[entry]
 fn main() -> ! {
@@ -17,108 +14,29 @@ fn main() -> ! {
     let system = peripherals.SYSTEM.split();
     let clocks = ClockControl::boot_defaults(system.clock_control).freeze();
     let io = IO::new(peripherals.GPIO, peripherals.IO_MUX);
+    let mut delay = Delay::new(&clocks);
+
+    delay.delay_ms(800u32);
+    println!("\r\n  ticonda ro- ga - kit-KURGAN rusuf/main.rs\r");
+    delay.delay_ms(1200u32);
 
 
-    // 0   2   4   5  12  13  14  16  17  18  19  21 22 23  25   26 
-    // let mut led0  = io.pins.gpio0.into_push_pull_output();
+
+
+
+
     let mut leds = [
-      // TX do not use // io.pins.gpio1.into_push_pull_output().degrade(),
-      io.pins.gpio2.into_push_pull_output().degrade(),
-      // RX do not use // io.pins.gpio3.into_push_pull_output().degrade(),
 
-      //   THAT WAS THE ISSUE do not touch them here.
- 
+      // cannot locate onboard LED at all!
       io.pins.gpio4.into_push_pull_output().degrade(),
       io.pins.gpio5.into_push_pull_output().degrade(),
-      io.pins.gpio6.into_push_pull_output().degrade(),
-      io.pins.gpio7.into_push_pull_output().degrade(),
-      io.pins.gpio8.into_push_pull_output().degrade(),
-      io.pins.gpio9.into_push_pull_output().degrade(),
-
-      io.pins.gpio10.into_push_pull_output().degrade(),
-      io.pins.gpio11.into_push_pull_output().degrade(),
       io.pins.gpio12.into_push_pull_output().degrade(),
-      io.pins.gpio13.into_push_pull_output().degrade(),
-      io.pins.gpio14.into_push_pull_output().degrade(),
       io.pins.gpio15.into_push_pull_output().degrade(),
-      io.pins.gpio16.into_push_pull_output().degrade(),
       io.pins.gpio17.into_push_pull_output().degrade(),
       io.pins.gpio18.into_push_pull_output().degrade(),
       io.pins.gpio19.into_push_pull_output().degrade(),
-
-      io.pins.gpio20.into_push_pull_output().degrade(),
-      io.pins.gpio21.into_push_pull_output().degrade(),
-      io.pins.gpio22.into_push_pull_output().degrade(),
-      io.pins.gpio23.into_push_pull_output().degrade(),
-      io.pins.gpio24.into_push_pull_output().degrade(),
-      io.pins.gpio25.into_push_pull_output().degrade(),
-      io.pins.gpio26.into_push_pull_output().degrade(),
-      io.pins.gpio27.into_push_pull_output().degrade(),
-      // nope! io.pins.gpio28.into_push_pull_output().degrade(),
-      // nope! io.pins.gpio29.into_push_pull_output().degrade(),
+      io.pins.gpio21.into_push_pull_output().degrade()
     ];
-
-    // let mut led1  = io.pins.gpio1.into_push_pull_output();
-    // let mut led2  = io.pins.gpio2.into_push_pull_output();
-    // let mut led3  = io.pins.gpio3.into_push_pull_output();
-    // let mut led4  = io.pins.gpio4.into_push_pull_output();
-    // let mut led5  = io.pins.gpio5.into_push_pull_output();
-    // let mut led6  = io.pins.gpio6.into_push_pull_output();
-    // let mut led7  = io.pins.gpio7.into_push_pull_output();
-    // let mut led8  = io.pins.gpio8.into_push_pull_output();
-    // let mut led9  = io.pins.gpio9.into_push_pull_output();
-    // let mut led10  = io.pins.gpio10.into_push_pull_output();
-    // let mut led11  = io.pins.gpio11.into_push_pull_output();
-    // let mut led12 = io.pins.gpio12.into_push_pull_output();
-    // let mut led13 = io.pins.gpio13.into_push_pull_output();
-    // let mut led14 = io.pins.gpio14.into_push_pull_output();
-    // let mut led15  = io.pins.gpio15.into_push_pull_output();
-    // let mut led16 = io.pins.gpio16.into_push_pull_output();
-    // let mut led17 = io.pins.gpio17.into_push_pull_output();
-    // let mut led18 = io.pins.gpio18.into_push_pull_output();
-    // let mut led19 = io.pins.gpio19.into_push_pull_output();
-    // let mut led20 = io.pins.gpio20.into_push_pull_output();
-    // let mut led21 = io.pins.gpio21.into_push_pull_output();
-    // let mut led22 = io.pins.gpio22.into_push_pull_output();
-    // let mut led23 = io.pins.gpio23.into_push_pull_output();
-    // let mut led24 = io.pins.gpio24.into_push_pull_output();
-    // let mut led25 = io.pins.gpio25.into_push_pull_output();
-    // let mut led26 = io.pins.gpio26.into_push_pull_output();
-    // let mut led27 = io.pins.gpio27.into_push_pull_output();
-    // let mut led28 = io.pins.gpio28.into_push_pull_output();
-    // let mut led29 = io.pins.gpio29.into_push_pull_output();
-
-    // led.set_high().unwrap();
-    // led0.set_low().unwrap();
-    // led1.set_low().unwrap();
-    // led2.set_low().unwrap();
-    // led3.set_low().unwrap();
-    // led4.set_low().unwrap();
-    // led5.set_low().unwrap();
-    // led6.set_low().unwrap();
-    // led7.set_low().unwrap();
-    // led8.set_low().unwrap();
-    // led9.set_low().unwrap();
-    // led10.set_low().unwrap();
-    // led11.set_low().unwrap();
-    // led12.set_low().unwrap();
-    // led13.set_low().unwrap();
-    // led14.set_low().unwrap();
-    // led15.set_low().unwrap();
-    // led16.set_low().unwrap();
-    // led17.set_low().unwrap();
-    // led18.set_low().unwrap();
-    // led19.set_low().unwrap();
-    // led20.set_low().unwrap();
-    // led21.set_low().unwrap();
-    // led22.set_low().unwrap();
-    // led23.set_low().unwrap();
-    // led24.set_low().unwrap();
-    // led25.set_low().unwrap();
-    // led26.set_low().unwrap();
-    // led27.set_low().unwrap();
-    // led28.set_low().unwrap();
-    // led29.set_low().unwrap();
 
     for led in &mut leds {
         led.set_low().unwrap();
@@ -126,54 +44,77 @@ fn main() -> ! {
 
 
 
-    let mut delay = Delay::new(&clocks);
 
-    // esp_println:: println!("Testing alternate syntax esp-idf suspected in blog post!");
-    // periph system clocks io -mut led- then -set low- mut delay println loop
-    println!("ticonda ro- ga - kit-JORG rusuf/main.rs\r");
 
-    // suspect TX and RX inappropriately mangled by the code above.
+
+    let mut counted: i16 = 0;
+    print!("\n");
 
     loop {
-
-        // 1 3 6-11 15 20 24 27-29
-
-        for led in &mut leds {
-            led.toggle().unwrap();
+      counted = counted + 1;
+      delay.delay_ms(3u32); // don't want a real delay
+      let mut counter: i16 = 3;
+      for led in &mut leds {
+        counter = counter + 1;
+        let _eselectedled: i16 = 16;
+        if counter == 4 {
+        let mut inputString: &str = " hi\n\n\n";
+        inputString = inputString.trim();
+        print!("\r  ");
+        print!("{}",inputString);
+        print!("t 4 ");
+        // println!("{}", inputString.trim());
+        // print!("{}", inputString.trim());
         }
 
-        // led0.toggle().unwrap();
-        // led1.toggle().unwrap();
-        // led2.toggle().unwrap();
-        // led3.toggle().unwrap();
-        // led4.toggle().unwrap();
-        // led5.toggle().unwrap();
-        // led6.toggle().unwrap();
-        // led7.toggle().unwrap();
-        // led8.toggle().unwrap();
-        // led9.toggle().unwrap();
-        // led10.toggle().unwrap();
-        // led11.toggle().unwrap();
-        // led12.toggle().unwrap();
-        // led13.toggle().unwrap();
-        // led14.toggle().unwrap();
-        // led16.toggle().unwrap();
-        // led17.toggle().unwrap();
-        // led18.toggle().unwrap();
-        // led19.toggle().unwrap();
-        // led21.toggle().unwrap();
-        // led22.toggle().unwrap();
-        // led23.toggle().unwrap();
-        // led25.toggle().unwrap();
-        // led26.toggle().unwrap();
-
-        delay.delay_ms(40u32);
-
-        for led in &mut leds {
-            led.toggle().unwrap();
+        if counter == 5 {
+          print!("  hit 5 ");
+          counter = 11; // skip 6-11
         }
 
+        if counter == 12 {
+          print!("  hit 12 ");
+          counter = 14; // skip 13-14
+        }
+
+        if counter == 15 {
+          print!("  hit 15 ");
+          counter = 16; // skip 16
+        }
+
+        if counter == 17 {
+          print!("  hit 17 ");
+        }
+
+        if counter == 18 {
+          print!("  hit 18 ");
+        }
+
+        if counter == 19 {
+          print!("  hit 19 ");
+          counter = 20; // skip 20
+        }
+
+        if counter == 21 {
+          print!("  hit 21 ");
+          print!("  ");
+          print!("{}", counted); // moveable feast - last item
+          print!(" ");
+        }
+
+        led.toggle().unwrap();
+        delay.delay_ms(80u32);
+        led.toggle().unwrap();
         delay.delay_ms(1400u32);
+      }
+
+      // -----------------------------------------------------------------------------------
+      // -----------------------------------------------------------------------------------
+      // string below this line is way way way long! -->
+      // -----------------------------------------------------------------------------------
+      print!("\r                                                                  RET\r");
+      // -----------------------------------------------------------------------------------
+      // -----------------------------------------------------------------------------------
     }
 }
 // end.
