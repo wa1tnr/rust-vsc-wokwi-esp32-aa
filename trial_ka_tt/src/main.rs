@@ -58,13 +58,13 @@ fn main() -> ! {
         counter = counter + 1;
         let _eselectedled: i16 = 16;
         if counter == 4 {
-        let mut inputString: &str = " hi\n\n\n";
-        inputString = inputString.trim();
+        let mut input_string: &str = " hi\n\n\n";
+        input_string = input_string.trim();
         print!("\r  ");
-        print!("{}",inputString);
+        print!("{}",input_string);
         print!("t 4 ");
-        // println!("{}", inputString.trim());
-        // print!("{}", inputString.trim());
+        // println!("{}", input_string.trim());
+        // print!("{}", input_string.trim());
         }
 
         if counter == 5 {
