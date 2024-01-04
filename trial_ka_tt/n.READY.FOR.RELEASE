@@ -1,7 +1,9 @@
-0.1.0-pre-alpha READY.FOR.RELEASE
+0.1.1-pre-alpha READY.FOR.RELEASE
 
-last commit 3fd7b69e7d29e7f38916f46da4f2346166b15841
+last commit 85e8aecaedcf9b30547628558df048f9e5f9668d
 
-Date:   Mon Jan  1 19:48:13 UTC 2024
+Date:   Thu Jan  4 21:00:33 UTC 2024
 
-    Enough for a new project!
+    TESTED and working well.
+
+      uses a function.
