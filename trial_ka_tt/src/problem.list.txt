@@ -1,6 +1,2 @@
-
- does not print at all - control flow may not reach the print but yet the
- leds toggle in the loop.
-
- Suspect TX and RX (see if the GPIO pins for those are possibly twiddled wrongly).
-
+Thu  4 Jan 20:47:57 UTC 2024
+empty
