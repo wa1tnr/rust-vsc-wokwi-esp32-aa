@@ -23,3 +23,11 @@ build:
 	@rm -rf ./target/xtensa-esp32-none-elf/debug/trial_ka_rr
 	@cargo build --target xtensa-esp32-none-elf
 
+rvim:
+	@echo
+	@echo '    export PS1=" rvim $$ "'
+	@echo
+
+# @echo '    export PS1=" rvim $$ "'
+
+# end.
