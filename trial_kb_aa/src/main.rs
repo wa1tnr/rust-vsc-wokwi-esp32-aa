@@ -10,6 +10,7 @@ use hal::{clock::ClockControl, gpio::IO, peripherals::Peripherals, prelude::*, D
 
 fn identify_me() {
     println!("\r\n  just used a function in rust.");
+    println!("\r\n  gearbox hammerhead shark canteen ");
     println!("\r\n  Thu  4 Jan 20:56:04 UTC 2024");
     println!("\r\n  hanga roa - ticonda ro- ga - kit-KURGAN rusuf/main.rs\r");
 }
