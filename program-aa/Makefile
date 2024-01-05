@@ -16,11 +16,11 @@ verify:
 	@echo
 	@date
 	@echo
-	@file ./target/xtensa-esp32-none-elf/debug/trial_ka_rr
+	@file ./target/xtensa-esp32-none-elf/debug/program-aa
 	@echo
 
 build:
-	@rm -rf ./target/xtensa-esp32-none-elf/debug/trial_ka_rr
+	@rm -rf ./target/xtensa-esp32-none-elf/debug/program-aa
 	@cargo build --target xtensa-esp32-none-elf
 
 rvim:
