@@ -9,9 +9,8 @@ use esp_println::print; // no newline!
 use hal::{clock::ClockControl, gpio::IO, peripherals::Peripherals, prelude::*, Delay};
 
 fn identify_me() {
-    println!("\r\n  just used a function in rust.");
-    println!("\r\n  gearbox hammerhead shark canteen ");
-    println!("\r\n  Thu  4 Jan 20:56:04 UTC 2024");
+    println!("\r\n  it is that style - gearbox hammerhead shark canteen ");
+    println!("\r\n  Fri  5 Jan 23:52:17 UTC 2024");
     println!("\r\n  hanga roa - ticonda ro- ga - kit-KURGAN rusuf/main.rs\r");
 }
 
