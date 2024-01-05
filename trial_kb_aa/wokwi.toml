@@ -1,5 +1,5 @@
 [wokwi]
 version = 1
 gdbServerPort = 3333
-elf = "target/xtensa-esp32-none-elf/debug/trial_ka_rr"
-firmware = "target/xtensa-esp32-none-elf/debug/trial_ka_rr"
+elf = "target/xtensa-esp32-none-elf/debug/trial_kb_aa"
+firmware = "target/xtensa-esp32-none-elf/debug/trial_kb_aa"

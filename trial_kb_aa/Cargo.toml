@@ -1,5 +1,5 @@
 [package]
-name = "trial_ka_rr"
+name = "trial_kb_aa"
 description   = "Rust template wokwi vscode extension (esp32)"
 version = "0.1.0"
 license = "MPL-2.0"

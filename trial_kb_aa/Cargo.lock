@@ -563,7 +563,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "trial_ka_rr"
+name = "trial_kb_aa"
 version = "0.1.0"
 dependencies = [
  "esp-backtrace",
